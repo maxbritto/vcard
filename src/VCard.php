@@ -417,6 +417,24 @@ class VCard
     }
 
     /**
+     * Add UID
+     *
+     * @param  string $uid
+     * @param  string [optional] $type Type may be WORK | HOME
+     * @return $this
+     */
+    public function addUID($uid, $type = '')
+    {
+        $this->setProperty(
+            'uid',
+            'UID' . (($type != '') ? ';' . $type : ''),
+            $uid
+        );
+
+        return $this;
+    }
+
+    /**
      * Build VCard (.vcf)
      *
      * @return string
